@@ -12,9 +12,9 @@ public class GHUser {//Represents a GitHub User (object) definied by field login
 		try{
 			URL url = new URL("https://api.github.com/user?access_token="+token);//making request to the user profile API  
 			HttpURLConnection con = (HttpURLConnection)url.openConnection();
-			InputStream is = con.getInputStream();
+			InputStream is = con.getInputStream();//json format
 			Gson gson = new Gson();
-			GHUser user = gson.fromJson(new InputStreamReader(is), GHUser.class);
+			GHUser user = gson.fromJson(new InputStreamReader(is), GHUser.class);//json to a GHUser object
 			return user;
 		}catch(Exception e){System.out.println("invalid token:"+token);
 		}
