@@ -5,7 +5,7 @@ import java.net.URL;
 
 import com.google.gson.Gson;
 
-public class Repo {//representation of json repo list api
+public class Repo {//representation of (json) repo list api
 	String full_name, language;
 	boolean fork;
 	int stargazers_count, forks_count;
