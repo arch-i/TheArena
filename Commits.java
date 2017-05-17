@@ -13,7 +13,7 @@ public class Commits {//keeps the record of a repo's weekly commit count (by the
 		try{
 			URL url = new URL("https://api.github.com/repos/"+path+"/stats/participation");//requesting commit stat API 
 		    HttpURLConnection con = (HttpURLConnection)url.openConnection();
-		    InputStream is = con.getInputStream();//json file
+		    InputStream is = con.getInputStream();//json format
 		    Gson gson = new Gson();
 		    Commits commits = gson.fromJson(new InputStreamReader(is), Commits.class);// json to a Commit object
 		    return commits;
