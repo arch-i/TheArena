@@ -6,11 +6,11 @@ import java.net.URL;
 import com.google.gson.Gson;
 
 public class GHUser {
-	protected String login;
-    
-    public static GHUser getUser(String token){
+	protected String login;//Represents a GitHub User (object) definied by field login (user-id)
+	
+    public static GHUser getUser(String token){// Returns user with the given token
 		try{
-			URL url = new URL("https://api.github.com/user?access_token="+token);
+			URL url = new URL("https://api.github.com/user?access_token="+token);//making request to the user profile API  
 			HttpURLConnection con = (HttpURLConnection)url.openConnection();
 			InputStream is = con.getInputStream();
 			Gson gson = new Gson();
