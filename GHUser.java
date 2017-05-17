@@ -5,7 +5,7 @@ import java.net.URL;
 
 import com.google.gson.Gson;
 
-public class GHUser {//Represents a GitHub User (object) definied by field login (user-id)
+public class GHUser {//Representation of (json) GitHub User profile api (definied by field login (user-id))
 	protected String login;
 	
     public static GHUser getUser(String token){// Creates(returns) user with the given token
