@@ -5,7 +5,7 @@ import java.net.URL;
 
 import com.google.gson.Gson;
 
-public class Repo {//representation of (json) repo list api
+public class Repo {//representation of (json) repo api
 	String full_name, language;
 	boolean fork;
 	int stargazers_count, forks_count;
@@ -16,7 +16,7 @@ public class Repo {//representation of (json) repo list api
 		    HttpURLConnection con = (HttpURLConnection)url.openConnection();
 		    InputStream is = con.getInputStream();//json format
 		    Gson gson = new Gson();
-		    Repo[] repo = gson.fromJson(new InputStreamReader(is), Repo[].class);//Creates an array of Repos from json
+		    Repo[] repo = gson.fromJson(new InputStreamReader(is), Repo[].class);//Objects of Repos(list) from json
 		    return repo;
 		}catch(Exception e){System.out.println("No Repos Found");}
 		return new Repo[0];
