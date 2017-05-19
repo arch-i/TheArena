@@ -23,14 +23,14 @@ public class Commits {//keeps the record of a repo's weekly commit count (by the
 	
 	public int getTotal(){// returns total commits by the owner (summed for past 52 weeks) on the repo
 		int sum = 0;
-		for(int i=0;i<52;i++){
+		for(int i=0;i<owner.length;i++){
 			sum = sum + owner[i];
 		}
 		return sum;
 	}
 	
 	public int getLastWeeks(){// returns last week's commits on the repo
-		return owner[51];
+		try{return owner[owner.length - 1];}catch(NullPointerException e){return 0;}
 	}
 
 }
