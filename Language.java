@@ -12,17 +12,20 @@ public class Language {//keeps the record of number of times (count) a particula
 		
 		for(int i=0;i<(repo.length);i++){
 			String nextL = repo[i].language;// nextL = language of ith repo
+			if(nextL==null){
+				continue;
+			}
 			int j=0;
 			while(nextL!=(l[j].lang)&&l[j].lang!=null){//checks wether nextL matches with any previous Ls(l[j] languages)
 				j++;
 			}
-			if(nextL!=null&&l[j].lang==null){// if no match found then nextL is alloted to jth Language
-				l[j].lang = nextL;
-				l[j].count = 1;
-			}
-			if(nextL==(l[j].lang)&&l[j].lang!=null){// if match found then l[j]'s count is increased
+			if(nextL==(l[j].lang)){// if match found then l[j]'s count is increased
 				l[j].count++;
 			}
+			else{if(l[j].lang==null){// if no match found then nextL is alloted to jth Language
+				l[j].lang = nextL;
+				l[j].count = 1;
+			}}
 		}
 		
 		if(l[0].count==0){// no language found in any repo
